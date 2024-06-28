@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart Billing</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <br>
+    <br>
+    <div class="container">
+        <h1>Shopping Cart Web App</h1>
+        <div class="split left">
+        <form action="/add-product" method="POST">
+            <div class="form-group">
+                <label for="customerName">Customer Name:</label>
+                <input type="text" id="customerName" name="customerName" placeholder="Enter customer name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="productPrice">Product Price:</label>
+                <input type="number" id="productPrice" name="productPrice" placeholder="Enter product price" required>
+            </div>
+
+            <div class="form-group">
+                <label for="productCode">Product Code:</label>
+                <input type="text" id="productCode" name="productCode" placeholder="Enter product code" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Add Product</button>
+            </div>
+        </form>
+        <br>
+        <br>
+
+
+        <form action="/delete-product" method="POST">
+            <div class="form-group">
+                <label for="productNameToDelete">Product Name to Delete:</label>
+                <input type="text" id="productNameToDelete" name="productName" placeholder="Enter product name to delete" required>
+            </div>
+            <!-- <div class="form-group">
+                <label for="productpriceToDelete">Product Name to Delete:</label>
+                <input type="text" id="productpriceToDelete" name="productPrice" placeholder="Enter product price to delete" required>
+            </div>
+            <div class="form-group">
+                <label for="productcodeToDelete">Product Name to Delete:</label>
+                <input type="text" id="productCodeToDelete" name="productCode" placeholder="Enter product code to delete" required>
+            </div> -->
+
+            <div class="form-group">
+                <button type="submit">Delete Product</button>
+            </div>
+        </form>
+        </div>
+
+
+        <div class="split right">
+
+        <div class="summary">
+            <h2>Shopping Cart Summary</h2>
+            <p><%= summary %></p>
+        </div>
+
+        <form action="/checkout" method="POST">
+            <div class="form-group">
+                <button type="submit">Checkout</button>
+            </div>
+        </form>
+<br>
+<br>
+        <div class="checkout-summary">
+            <h2>Checkout Summary</h2>
+            <p>Total Discount: <%= checkoutSummary.discount %></p>
+            <p>Loyalty Points Earned: <%= checkoutSummary.loyaltyPoints %></p>
+            <p style="font-size: larger;"><b>Total Price: <%= checkoutSummary.totalPrice %></b></p>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
